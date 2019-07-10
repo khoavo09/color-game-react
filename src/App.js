@@ -62,7 +62,6 @@ class App extends Component {
   async reset(){
     await this.generateRandomColors()
     this.pickColor()
-    console.log(this.state.colors)
   }
   
   generateRandomColors(){
@@ -87,10 +86,10 @@ class App extends Component {
     this.state.isFinished === false?  message = "" :   message = "CORRECT!"
     const squareItem = this.state.colors.map( (item, i)=> 
     <Square item={item}   
-     key = {i}
-     id = {i}
+     key={i}
+     id={i}
      correctColor={this.state.correctColor}  
-     handleSquareClick = {this.handleSquareClick}/>)
+     handleSquareClick={this.handleSquareClick}/>)
 
     let squares
     if(mode === "hard"){
@@ -109,11 +108,11 @@ class App extends Component {
       <div>
           <h1>The Great 
           <br />
-          <span id = "colorDisplay">RBG</span> 
+          <span id="colorDisplay">RBG</span> 
           <br />Color Game
           </h1>
       
-        <div id= "stripe">
+        <div id="stripe">
           <button value="newColor" onClick={this.generateRandomColors}>New Colors?</button>
           <span id="message">{message}</span>
           <button className="mode" value="easy" onClick={ this.handleClick}>Easy</button>
